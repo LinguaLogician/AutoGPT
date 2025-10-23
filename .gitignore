@@ -4,9 +4,9 @@ classic/original_autogpt/keys.py
 classic/original_autogpt/*.json
 auto_gpt_workspace/*
 *.mpeg
-.env
+#.env
 # Root .env files
-/.env
+#/.env
 azure.yaml
 .vscode
 .idea/*
