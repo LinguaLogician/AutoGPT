@@ -7,6 +7,7 @@ networks:
 volumes:
   supabase-config:
   clamav-data:
+  postgres-data:
 
 x-agpt-services:
   &agpt-services

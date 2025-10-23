@@ -86,6 +86,10 @@ services:
     <<: *backend-env-files
     environment:
       <<: *backend-env
+      # 添加以下配置来允许使用弃用的management_metrics_collection特性
+#      RABBITMQ_SERVER_ADDITIONAL_ERL_ARGS: "-rabbit deprecated_features.permit.management_metrics_collection true"
+    # 添加以下配置来允许使用弃用的management_metrics_collection特性
+#      RABBITMQ_SERVER_ADDITIONAL_ERL_ARGS: "-rabbit deprecated_features.permit.management_metrics_collection true"
     ports:
       - "5672:5672"
       - "15672:15672"
@@ -250,7 +254,7 @@ services:
     #       "-f",
     #       "-X",
     #       "POST",
-    #       "http://localhost:8003/health_check",
+    #       "http://0.0.0.0:8003/health_check",
     #     ]
     #   interval: 10s
     #   timeout: 10s
@@ -313,7 +317,8 @@ services:
       migrate:
         condition: service_completed_successfully
     ports:
-      - "3000:3000"
+#      - "3000:3000"
+      - "0.0.0.0:3000:3000"
     networks:
       - app-network
     logging:

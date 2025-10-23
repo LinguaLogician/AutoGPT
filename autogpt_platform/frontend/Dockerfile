@@ -2,6 +2,10 @@
 FROM node:21-alpine AS base
 WORKDIR /app
 RUN corepack enable
+
+# 通过环境变量设置镜像源，避免触发 corepack 的网络请求
+ENV PNPM_REGISTRY=https://registry.npmmirror.com
+
 COPY autogpt_platform/frontend/package.json autogpt_platform/frontend/pnpm-lock.yaml ./
 RUN --mount=type=cache,target=/root/.local/share/pnpm pnpm install --frozen-lockfile
 
