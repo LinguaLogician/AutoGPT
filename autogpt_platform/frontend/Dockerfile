@@ -1,12 +1,12 @@
 # Base stage for both dev and prod
 FROM node:21-alpine AS base
 WORKDIR /app
+# 设置淘宝镜像
+RUN npm config set registry https://registry.npmmirror.com/
 RUN corepack enable
-
-# 通过环境变量设置镜像源，避免触发 corepack 的网络请求
-ENV PNPM_REGISTRY=https://registry.npmmirror.com
-
 COPY autogpt_platform/frontend/package.json autogpt_platform/frontend/pnpm-lock.yaml ./
+# 为 pnpm 也设置镜像
+RUN pnpm config set registry https://registry.npmmirror.com/
 RUN --mount=type=cache,target=/root/.local/share/pnpm pnpm install --frozen-lockfile
 
 # Build stage for prod
