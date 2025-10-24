@@ -2,6 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
+  allowedDevOrigins: ['*'],
   // 禁用Edge Runtime，使用Node.js运行时
   experimental: {
     runtime: 'nodejs',
