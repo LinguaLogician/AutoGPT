@@ -66,7 +66,7 @@ class ProtocolAgent:
         app.include_router(router, prefix="/ap/v1")
         script_dir = os.path.dirname(os.path.realpath(__file__))
         frontend_path = pathlib.Path(
-            os.path.join(script_dir, "../../../classic/frontend/build/web")
+            os.path.join(script_dir, "../../../../classic/frontend/build/web")
         ).resolve()
 
         if os.path.exists(frontend_path):

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/bash
 
 # Kill processes using port 8080 if any.
 if lsof -t -i :8080; then

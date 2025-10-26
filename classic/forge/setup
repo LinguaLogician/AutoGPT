@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/bash
 
  ENV_PATH=$(poetry env info --path)
  if [ -d "$ENV_PATH" ]; then

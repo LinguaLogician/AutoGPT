@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/bash
 
 kill $(lsof -t -i :8000)
 
