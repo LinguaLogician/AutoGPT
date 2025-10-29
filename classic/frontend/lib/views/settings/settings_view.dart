@@ -71,20 +71,6 @@ class SettingsView extends StatelessWidget {
               ],
             ),
           ),
-          // Sign out button fixed at the bottom
-          Container(
-            width: double.infinity,
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-            child: ElevatedButton.icon(
-              icon: const Icon(Icons.logout, color: Colors.black),
-              label:
-                  const Text('Sign Out', style: TextStyle(color: Colors.black)),
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.white,
-              ),
-              onPressed: viewModel.signOut,
-            ),
-          ),
         ],
       ),
     );

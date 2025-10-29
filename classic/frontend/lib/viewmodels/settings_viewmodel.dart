@@ -1,4 +1,3 @@
-import 'package:auto_gpt_flutter_client/services/auth_service.dart';
 import 'package:auto_gpt_flutter_client/services/shared_preferences_service.dart';
 import 'package:auto_gpt_flutter_client/utils/rest_api_utility.dart';
 import 'package:flutter/material.dart';
@@ -20,8 +19,6 @@ class SettingsViewModel extends ChangeNotifier {
   bool get isDeveloperModeEnabled => _isDeveloperModeEnabled;
   String get baseURL => _baseURL;
   int get continuousModeSteps => _continuousModeSteps;
-
-  final AuthService _authService = AuthService();
 
   SettingsViewModel(this._restApiUtility, this._prefsService) {
     _loadPreferences();
@@ -78,10 +75,5 @@ class SettingsViewModel extends ChangeNotifier {
       notifyListeners();
       await _prefsService.setInt('continuousModeSteps', _continuousModeSteps);
     }
-  }
-
-  // Method to sign out
-  Future<void> signOut() async {
-    await _authService.signOut();
   }
 }
